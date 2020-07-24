@@ -1,0 +1,273 @@
+:root {
+  --background: rgba(0, 214, 170, .85);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.content {
+  height: 200vh;
+  background-color: black;
+  color:white;
+  display: grid;
+  place-items: center;
+}
+
+
+/* navigation styles */
+.nave {
+  background: var(--background);
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+  transition: transform 0.4s ease-in-out;
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+.nav-toggle-label span::after {
+  top: 7px;
+}
+.nav-toggle:checked ~ .nav-toggle-label span {
+  transform: rotate(45deg);
+}
+.nav-toggle:checked ~ .nav-toggle-label span::before {
+  opacity: 0;
+}
+.nav-toggle:checked ~ .nav-toggle-label span::after {
+  transform: translateY(-7px) rotate(-90deg);
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: var(--background);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; 
+}
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding:4px;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+nav a:hover {
+  color: #000;
+  background-color:white;
+}
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+  .nave {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+  
+  nav {
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  nav ul {
+    display: flex;;
+  }
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+  nav a {
+    opacity: 1;
+    position: relative;
+
+  }
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: -.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform 250ms ease-in-out;
+  }
+  nav a:hover::before {
+    transform: scale(1, 1);
+  }
+  ul li a:hover {
+    background: white;
+	padding:5px;
+}
+
+.logo{
+	position:relative;
+	right:-100px;
+}
+
+ul li a:hover::before {
+    transform: scaleX(1);
+}
+.content {
+  height: 200vh;
+  background-color: black;
+  color:green;
+  
+  
+}
+  
+  
+  
+marquee{
+   text-align:center;
+   font-size:40px;
+   color:white;
+   font-weight:bold;
+   line-height:40px;
+   z-index:-1;
+   }
+   
+span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+span:nth-child(2):hover {
+  color: #4aacb8;
+  top: 2px;
+  left: 2px;
+  text-shadow: 1px 1px #1b818d, 2px 2px #1b818d, 3px 3px #1b818d, 4px 4px #1b818d, 4px 4px 5px rgba(0,0,0,0.5);
+}
+
+span:nth-child(3):hover {
+  color: #49b8ff;
+  top: -8px;
+  left: -8px;
+  text-shadow: 1px 1px #116295, 2px 2px #116295, 3px 3px #116295, 4px 4px #116295, 5px 5px #116295, 6px 6px #116295, 7px 7px #116295, 8px 8px #116295, 9px 9px #116295, 10px 10px #116295, 11px 11px #116295, 12px 12px #116295, 13px 13px #116295, 14px 14px 5px rgba(0,0,0,0.5);
+}
+
+span:nth-child(4):hover {
+  color: #cc3fd9;
+  top: 4px;
+  left: 4px;
+  text-shadow: 1px 1px #870d92, 2px 2px #870d92, 2px 2px 3px rgba(0,0,0,0.5);
+}
+
+span:nth-child(6):hover {
+  color: #d34a87;
+  top: -10px;
+  left: -10px;
+  text-shadow: 1px 1px #8b1b4d, 2px 2px #8b1b4d, 3px 3px #8b1b4d, 4px 4px #8b1b4d, 5px 5px #8b1b4d, 6px 6px #8b1b4d, 7px 7px #8b1b4d, 8px 8px #8b1b4d, 9px 9px #8b1b4d, 10px 10px #8b1b4d, 11px 11px #8b1b4d, 12px 12px #8b1b4d, 13px 13px #8b1b4d, 14px 14px #8b1b4d, 15px 15px #8b1b4d, 16px 16px #8b1b4d, 16px 16px 8px rgba(0,0,0,0.5), 17px 17px 10px rgba(0,0,0,0.3), 18px 18px 5px rgba(0,0,0,0.5) ;
+}
+
+span:nth-child(7):hover {
+  color: #d13153;
+  text-shadow: 1px 1px #83142c, 2px 2px #83142c, 3px 3px #83142c, 4px 4px #83142c, 5px 5px #83142c, 6px 6px #83142c, 7px 7px #83142c, 8px 8px #83142c, 9px 9px 3px rgba(0,0,0,0.5);
+}
+
+span:hover {
+  color: #acd335;
+  text-shadow: 1px 1px #749218, 2px 2px #749218, 3px 3px #749218, 4px 4px #749218, 5px 5px #749218, 6px 6px #749218, 7px 7px #749218, 8px 8px #749218, 9px 9px 3px rgba(0,0,0,0.5);
+  top: -2px;
+  left: -2px;
+ transition: all 0.1s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.co_enroll{
+	
+	height:800px;
+	background-color:#e6ffe6;
+}
+
+ul li{
+	color:red;
+	font-size:25px;
+	line-height:30px;
+	font-weight:bold;
+}
+
+
+
+
+}
